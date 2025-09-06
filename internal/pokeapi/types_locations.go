@@ -1,0 +1,34 @@
+package pokeapi
+
+// RespShallowLocations -
+type RespShallowLocations struct {
+	Count    int     `json:"count"`
+	Next     *string `json:"next"`
+	Previous *string `json:"previous"`
+	Results  []struct {
+		Name string `json:"name"`
+		URL  string `json:"url"`
+	} `json:"results"`
+}
+
+type RespShallowExploreLocation struct {
+	ID int `json:"id"`
+	Name string `json:"name"`
+	GameIndex int `json:"game_index"`
+	PokemonEncounters []struct {
+		Pokemon struct {
+			Name string `json:"name"`
+			URL  string `json:"url"`
+		} `json:"pokemon"`
+		VersionDetails []struct {
+			Version struct {
+				Name string `json:"name"`
+				URL  string `json:"url"`
+			} `json:"version"`
+			EncounterDetails []struct {
+				MinLevel int `json:"min_level"`
+				MaxLevel int `json:"max_level"`
+			} `json:"encounter_details"`
+		} `json:"version_details"`
+	} `json:"pokemon_encounters"`
+}
