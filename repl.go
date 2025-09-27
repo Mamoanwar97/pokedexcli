@@ -13,6 +13,7 @@ type config struct {
 	nextLocationsURL *string
 	prevLocationsURL *string
 	params           []string
+	pokemonCaught     map[string]pokeapi.RespShallowPokemonDetails
 }
 
 func startRepl(cfg *config) {
@@ -81,6 +82,21 @@ func getCommands() map[string]cliCommand {
 			name:        "explore",
 			description: "Explore a location",
 			callback:    commandExplore,
+		},
+		"catch": {
+			name:        "catch",
+			description: "Catch a pokemon",
+			callback:    commandCatch,
+		},
+		"inspect": {
+			name:        "inspect",
+			description: "Inspect a pokemon",
+			callback:    commandInspect,
+		},
+		"pokedex": {
+			name:        "pokedex",
+			description: "Show all caught pokemon",
+			callback:    commandPokedex,
 		},
 	}
 }

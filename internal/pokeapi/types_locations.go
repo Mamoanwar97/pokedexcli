@@ -32,3 +32,17 @@ type RespShallowExploreLocation struct {
 		} `json:"version_details"`
 	} `json:"pokemon_encounters"`
 }
+
+type RespShallowPokemonDetails struct {
+	ID int `json:"id"`
+	Name string `json:"name"`
+	BaseExperience int `json:"base_experience"`
+	Height int `json:"height"`
+	Weight int `json:"weight"`
+	Abilities []struct {
+		Ability struct {
+			Name string `json:"name"`
+			URL  string `json:"url"`
+		} `json:"ability"`
+	} `json:"abilities"`
+}
